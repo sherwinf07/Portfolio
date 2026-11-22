@@ -1,4 +1,4 @@
-FROM dhi.io/nginx:1
+FROM dhi.io/nginx:1-alpine
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY index.html styles.css cv.pdf /usr/share/nginx/html/

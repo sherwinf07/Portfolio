@@ -2,7 +2,6 @@ services:
   portfolio:
     build: .
     image: localhost/portfolio:local
-    pull_policy: always
     container_name: portfolio
     user: "65532:65532"
     read_only: true
