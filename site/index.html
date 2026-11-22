@@ -31,7 +31,7 @@
     <div class="profile-card">
       <div class="avatar">
         <!-- Your profile photo is images/profile.png. To change it, replace the file or the src below. -->
-  <img src="images/profile.png" alt="Sherwin Frias">
+  <img src="images/profile.png" alt="Sherwin Frias" width="768" height="768">
       </div>
 
       <div class="identity">
@@ -70,19 +70,19 @@
          2. Copy one whole <section class="section" id="..."> block below (for example, the "skills" block).
          3. Change its id to exactly match data-target (my-section), then replace the text inside.
          The tabs and sections are matched by these names, so a mismatch means the tab won't open anything. -->
-    <nav class="sidebar">
-      <button class="tab active" data-target="about">About</button>
-      <button class="tab" data-target="skills">Skills</button>
-      <button class="tab" data-target="work">Work History</button>
-      <button class="tab" data-target="education">Education</button>
-      <button class="tab" data-target="testimonials">Testimonials</button>
-      <button class="tab" data-target="contact">Contact</button>
+    <nav class="sidebar" role="tablist" aria-label="Portfolio sections">
+      <button class="tab active" role="tab" id="tab-about" aria-controls="about" aria-selected="true" tabindex="0" data-target="about">About</button>
+      <button class="tab" role="tab" id="tab-skills" aria-controls="skills" aria-selected="false" tabindex="-1" data-target="skills">Skills</button>
+      <button class="tab" role="tab" id="tab-work" aria-controls="work" aria-selected="false" tabindex="-1" data-target="work">Work History</button>
+      <button class="tab" role="tab" id="tab-education" aria-controls="education" aria-selected="false" tabindex="-1" data-target="education">Education</button>
+      <button class="tab" role="tab" id="tab-testimonials" aria-controls="testimonials" aria-selected="false" tabindex="-1" data-target="testimonials">Testimonials</button>
+      <button class="tab" role="tab" id="tab-contact" aria-controls="contact" aria-selected="false" tabindex="-1" data-target="contact">Contact</button>
     </nav>
 
     <main class="content">
 
       <!-- EDIT: About text, checklist items, CV link, and certification labels. -->
-      <section class="section active" id="about">
+      <section class="section active" id="about" role="tabpanel" aria-labelledby="tab-about">
         <div class="eyebrow">About Me</div>
         <h2 class="typewriter">$ whoami</h2>
         <p>
@@ -102,20 +102,20 @@
         <div class="collections">
           <h3>Certifications</h3>
           <div class="cert-row">
-            <img class="cert cert-inset" src="images/cert-mcsa.png" alt="Microsoft Certified Solutions Associate (MCSA)">
-            <img class="cert" src="images/cert-linux.png" alt="CompTIA Linux+">
-            <img class="cert" src="images/cert-security.png" alt="CompTIA Security+">
-            <img class="cert" src="images/cert-project.png" alt="CompTIA Project+">
-            <img class="cert" src="images/cert-cloud.png" alt="CompTIA Cloud+">
-            <img class="cert" src="images/cert-aplus.png" alt="CompTIA A+">
+            <img class="cert cert-inset" src="images/cert-mcsa.png" alt="Microsoft Certified Solutions Associate (MCSA)" width="220" height="220" loading="lazy">
+            <img class="cert" src="images/cert-linux.png" alt="CompTIA Linux+" width="601" height="601" loading="lazy">
+            <img class="cert" src="images/cert-security.png" alt="CompTIA Security+" width="601" height="601" loading="lazy">
+            <img class="cert" src="images/cert-project.png" alt="CompTIA Project+" width="601" height="601" loading="lazy">
+            <img class="cert" src="images/cert-cloud.png" alt="CompTIA Cloud+" width="600" height="600" loading="lazy">
+            <img class="cert" src="images/cert-aplus.png" alt="CompTIA A+" width="625" height="625" loading="lazy">
           </div>
         </div>
       </section>
 
       <!-- EDIT: Move a skill into another level group to change its level. Expert and Hands-on are my defaults, so adjust them to match your experience. -->
-      <section class="section" id="skills">
+      <section class="section" id="skills" role="tabpanel" aria-labelledby="tab-skills">
         <div class="eyebrow">Skills</div>
-        <h2>Technical Skills</h2>
+        <h2 class="typewriter typewriter-long">Technical Skills</h2>
         <div class="skill-level expert">
           <h3>Expert</h3>
           <ul class="skill-tags">
@@ -189,9 +189,9 @@
 
       <!-- EDIT: Replace each sample job with your role, company, dates, and a short description.
            To add a job, copy one complete <div class="item">...</div> block. -->
-      <section class="section" id="work">
+      <section class="section" id="work" role="tabpanel" aria-labelledby="tab-work">
         <div class="eyebrow">Work History</div>
-        <h2>Experience</h2>
+        <h2 class="typewriter typewriter-medium">Experience</h2>
         <div class="item current">
           <h4>Systems Engineer</h4>
           <div class="meta">GDIT &amp; Booz Allen Hamilton &middot; 07/2021 - Present &middot; Suffolk, VA</div>
@@ -232,18 +232,18 @@
 
       <!-- EDIT: Replace each sample school/certification below. Copy a complete item to add another.
            For a school logo, change the image path; keep the image in the images folder. -->
-      <section class="section" id="education">
-        <h2 class="edu-title">Education</h2>
+      <section class="section" id="education" role="tabpanel" aria-labelledby="tab-education">
+        <h2 class="edu-title typewriter typewriter-medium">Education</h2>
         <div class="edu-grid">
           <div>
             <div class="edu-years">2020</div>
-            <img class="edu-logo" src="images/wgu-logo.jpg" alt="Western Governors University logo">
+            <img class="edu-logo" src="images/wgu-logo.jpg" alt="Western Governors University logo" width="1650" height="601" loading="lazy">
             <div class="edu-school">Western Governors University</div>
             <div class="edu-degree">Bachelor of Science: Cybersecurity and Information Assurance</div>
           </div>
           <div>
             <div class="edu-years">2012 - 2017</div>
-            <img class="edu-logo" src="images/tcc-logo.png" alt="Tidewater Community College logo">
+            <img class="edu-logo" src="images/tcc-logo.png" alt="Tidewater Community College logo" width="445" height="113" loading="lazy">
             <div class="edu-school">Tidewater Community College</div>
             <div class="edu-degree">Associate of Applied Science: Information System Technology (Magna Cum Laude)</div>
           </div>
@@ -279,9 +279,9 @@
       </section>
 
       <!-- EDIT: Add or change testimonials. Copy one <blockquote> block to add another. -->
-      <section class="section" id="testimonials">
+      <section class="section" id="testimonials" role="tabpanel" aria-labelledby="tab-testimonials">
         <div class="eyebrow">Testimonials</div>
-        <h2>What People Say</h2>
+        <h2 class="typewriter typewriter-long">What People Say</h2>
         <blockquote class="quote">
           “Even though this is only a six-month reporting period, Sherwin has quickly grasped the many technical facets associated with managing and maintain nine networks supporting Joint and Multi-national partners and is the lead administrator for two of the nine networks.  He has met every dynamic challenge with professionalism, dedication, and expertise.  He has excellent customer interaction skills and quickly resolves issues as they come up.  I value his technical experience and knowledge and rely on his advice when addressing the many challenges associated with this contract.  He has my complete trust.  As our team moves forward into new technical domains associated with systems architecture/engineering and cloud technology, I will rely on Sherwin to continue expanding his professional knowledge and provide expert advice and leadership to the team and the customer as we move forward.”
           <cite>&mdash; Timothy Kalvoda, Project Manager and Engineering team lead at GDIT</cite>
@@ -307,11 +307,11 @@
       </section>
 
       <!-- EDIT: Update your contact details and social link. The message form needs a Formspree account. -->
-      <section class="section" id="contact">
+      <section class="section" id="contact" role="tabpanel" aria-labelledby="tab-contact">
         <div class="contact-grid">
           <div class="contact-info">
             <h2>Sherwin Frias</h2>
-            <p class="contact-role">Information Technology Professional</p>
+            <p class="contact-role">Systems Engineer | DevSecOps</p>
             <p class="contact-intro">
               I'm looking forward to hearing from you! I'm here to help and answer any questions you have.
               Please leave a message, and I'll get back to you as soon as possible.
@@ -323,12 +323,17 @@
           <!-- Form submissions go to Formspree. The recipient email is set in the Formspree dashboard. -->
           <form class="contact-form" id="contact-form" action="https://formspree.io/f/xbgoprpg" method="POST">
             <div class="form-row">
-              <input type="text" name="first_name" placeholder="First Name" required>
-              <input type="text" name="last_name" placeholder="Last Name" required>
+              <label class="sr-only" for="first-name">First name</label>
+              <input type="text" id="first-name" name="first_name" placeholder="First Name" autocomplete="given-name" required>
+              <label class="sr-only" for="last-name">Last name</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Last Name" autocomplete="family-name" required>
             </div>
-            <input type="email" name="email" placeholder="Email Address" required>
-            <input type="tel" name="phone" placeholder="Phone Number">
-            <textarea name="message" placeholder="Your Message" required></textarea>
+            <label class="sr-only" for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="Email Address" autocomplete="email" required>
+            <label class="sr-only" for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number" autocomplete="tel">
+            <label class="sr-only" for="message">Your message</label>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
             <button type="submit" class="btn submit-btn">Submit</button>
             <p class="form-status" id="form-status" role="status"></p>
           </form>
@@ -348,12 +353,26 @@
     const tabs = document.querySelectorAll('.tab');
     const sections = document.querySelectorAll('.section');
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        sections.forEach(s => s.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.target).classList.add('active');
+    function activateTab(tab, focus) {
+      tabs.forEach(t => {
+        const selected = t === tab;
+        t.classList.toggle('active', selected);
+        t.setAttribute('aria-selected', selected);
+        t.tabIndex = selected ? 0 : -1;
+      });
+      sections.forEach(s => s.classList.remove('active'));
+      document.getElementById(tab.dataset.target).classList.add('active');
+      if (focus) tab.focus();
+    }
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activateTab(tab, false));
+      tab.addEventListener('keydown', (event) => {
+        const keys = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+        if (!(event.key in keys)) return;
+        event.preventDefault();
+        const next = tabs[(index + keys[event.key] + tabs.length) % tabs.length];
+        activateTab(next, true);
       });
     });
 
