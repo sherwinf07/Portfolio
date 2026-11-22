@@ -1,0 +1,21 @@
+services:
+  portfolio:
+    build: .
+    image: localhost/portfolio:local
+    pull_policy: always
+    container_name: portfolio
+    user: "65532:65532"
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    logging:
+      driver: journald
+      options:
+        tag: "portfolio"
