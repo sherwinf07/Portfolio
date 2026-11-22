@@ -1,9 +1,7 @@
 FROM dhi.io/nginx:1-alpine
 
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY index.html styles.css cv.pdf /usr/share/nginx/html/
-COPY images /usr/share/nginx/html/images
-COPY fonts /usr/share/nginx/html/fonts
+COPY site/ /usr/share/nginx/html/
 
 USER 65532:65532
 

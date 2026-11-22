@@ -1,11 +1,13 @@
 # 👋 Portfolio
 
+![Cloudflare](https://img.shields.io/badge/Cloudflare-Pages_Ready-F38020?logo=cloudflare&logoColor=white)
+![Free](https://img.shields.io/badge/Hosting-Free-22C55E)
 ![Docker](https://img.shields.io/badge/Docker-Container-2496ED?logo=docker&logoColor=white)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-Ready-326CE5?logo=kubernetes&logoColor=white)
 ![nginx](https://img.shields.io/badge/nginx-Alpine-009639?logo=nginx&logoColor=white)
 ![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?logo=githubactions&logoColor=white)
 
-A personal portfolio site served by a small, hardened **nginx** container. Friendly to run locally, ready for Kubernetes, and published automatically from CI. 🚀
+A personal portfolio site served by a small, hardened **nginx** container. Friendly to run locally, ready for Kubernetes, and published automatically from CI. Cloudflare-ready, so it can be hosted for free. 🚀
 
 **👤 Author:** Sherwin Frias
 **📅 Date:** 2026-11-22
@@ -18,6 +20,7 @@ A personal portfolio site served by a small, hardened **nginx** container. Frien
 - 🔒 **Hardened:** runs as a non-root user with a read-only filesystem and no extra Linux capabilities.
 - ☸️ **Kubernetes-ready:** includes a Deployment and a Service.
 - 🤖 **Automated:** CI validates the config and manifests, then pushes the image to Docker Hub.
+- ☁️ **Cloudflare-ready:** the static site in `site/` deploys to Cloudflare Pages on the free plan.
 
 ---
 
@@ -25,8 +28,9 @@ A personal portfolio site served by a small, hardened **nginx** container. Frien
 
 | Path | Purpose |
 | --- | --- |
-| `index.html`, `styles.css` | 🎨 Site content and styling |
-| `images/`, `fonts/`, `cv.pdf` | 🖼️ Static assets |
+| `site/` | 🌐 Everything published to the web (the Cloudflare Pages output directory) |
+| `site/index.html`, `site/styles.css` | 🎨 Site content and styling |
+| `site/images/`, `site/fonts/`, `site/cv.pdf` | 🖼️ Static assets |
 | `nginx.conf` | ⚙️ nginx configuration (port 8080, JSON access logs, Cloudflare real-IP support) |
 | `Dockerfile` | 🐳 Container image definition |
 | `docker-compose.yml` | 🧩 Local run with Compose or Podman Compose |
@@ -53,6 +57,17 @@ The compose file sends logs to journald under the tag `portfolio`:
 ```sh
 journalctl -t portfolio -f
 ```
+
+---
+
+## ☁️ Deploy to Cloudflare Pages (Free)
+
+The site is static and **Cloudflare-ready**, so it can be hosted for free on Cloudflare Pages:
+
+1. In the Cloudflare dashboard, go to **Workers & Pages → Create → Pages → Connect to Git** and select this repository.
+2. Leave the **Build command** empty.
+3. Set the **Build output directory** to `site`.
+4. Deploy. Every push to `main` redeploys the site.
 
 ---
 
