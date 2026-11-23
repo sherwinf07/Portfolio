@@ -335,7 +335,7 @@ img.cert.cert-inset { padding: 10px; box-sizing: border-box; }
 .contact-line a { color: #1d6fa3; text-decoration: none; }
 
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding: 8px 10px 16px; align-items: center; }
-.contact-info h2 { font-size: 26px; font-weight: 700; }
+.contact-info h3 { font-size: 26px; font-weight: 700; }
 .contact-role { font-size: 12px; color: #1d6fa3; text-transform: uppercase; margin-top: 4px; }
 .contact-intro { font-size: 14px; line-height: 1.6; margin: 16px 0; }
 .contact-form { display: flex; flex-direction: column; gap: 10px; }
