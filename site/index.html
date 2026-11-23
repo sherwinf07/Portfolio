@@ -395,11 +395,11 @@
       event.preventDefault();
       const data = new FormData(contactForm);
       if (!data.get('cf-turnstile-response')) {
-        formStatus.textContent = 'Please complete the verification and try again.';
+        formStatus.textContent = 'One last check: prove you\'re human, then launch it.';
         return;
       }
       submitButton.disabled = true;
-      formStatus.textContent = 'Sending...';
+      formStatus.textContent = 'Transmitting... your message is on its way through the wires.';
       try {
         const response = await fetch(contactForm.action, {
           method: 'POST',
@@ -409,10 +409,10 @@
         const result = await response.json();
         if (!response.ok || result.ok !== true) throw new Error('Submission was not accepted');
         contactForm.reset();
-        formStatus.textContent = 'Thanks! Your message was accepted by Formspree.';
+        formStatus.textContent = 'Signal received! Your message is in my inbox, and I\'ll reply soon.';
       } catch (error) {
         console.error('Contact form submission failed:', error);
-        formStatus.textContent = 'Sorry, something went wrong. Please try again.';
+        formStatus.textContent = 'Signal lost somewhere in the stack. Give it another try in a moment.';
       } finally {
         submitButton.disabled = false;
         if (window.turnstile) window.turnstile.reset();
