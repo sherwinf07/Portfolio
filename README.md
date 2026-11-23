@@ -121,6 +121,8 @@ The workflow in [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on p
 ## 🛡️ Notes
 
 - 🌩️ **Cloudflare:** `nginx.conf` reads the visitor's IP from `CF-Connecting-IP`, but only from Cloudflare's published IP ranges. Refresh those ranges periodically.
+- ✉️ **Contact form:** The Cloudflare Worker in `worker/` verifies Turnstile and forwards submissions to Formspree. Deploy it with Wrangler from that directory and set the `TURNSTILE_SECRET` Worker secret with `wrangler secret put TURNSTILE_SECRET`. The widget must allow `portfolio.thefrias.net`; update the site key, Worker URL, and allowed origin if the deployment changes. Formspree must not be configured to verify the same Turnstile token again: tokens are single-use.
+- 🔎 **Delivery troubleshooting:** A successful response means Formspree accepted the request, not that it delivered an email or kept it out of spam. Check the Formspree submissions and spam inbox, domain restriction, recipient and notification settings. The Worker forwards the permitted site origin as the referrer for Formspree's domain restriction.
 - 🔄 **Base image updates:** rebuild with `docker compose build --pull` (or `docker build --pull`) to pick up the latest `dhi.io/nginx:1-alpine` base.
 
 ---
