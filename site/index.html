@@ -320,8 +320,8 @@
             <a class="social" href="https://github.com/sherwinf07" target="_blank" rel="noopener" aria-label="GitHub"><img src="images/github.svg" alt="" width="18" height="18"></a>
           </div>
 
-          <!-- Form submissions go to Formspree. The recipient email is set in the Formspree dashboard. -->
-          <form class="contact-form" id="contact-form" action="https://formspree.io/f/xbgoprpg" method="POST">
+          <!-- Submissions go to a Cloudflare Worker (see worker/), which verifies Turnstile and forwards to Formspree. -->
+          <form class="contact-form" id="contact-form" action="https://contact.YOUR-SUBDOMAIN.workers.dev" method="POST">
             <div class="form-row">
               <label class="sr-only" for="first-name">First name</label>
               <input type="text" id="first-name" name="first_name" placeholder="First Name" autocomplete="given-name" required>
@@ -334,6 +334,8 @@
             <input type="tel" id="phone" name="phone" placeholder="Phone Number" autocomplete="tel">
             <label class="sr-only" for="message">Your message</label>
             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+            <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY"></div>
             <button type="submit" class="btn submit-btn">Submit</button>
             <p class="form-status" id="form-status" role="status"></p>
           </form>
@@ -349,6 +351,7 @@
     <p class="footer-top"><a href="#top">Back to top &uarr;</a></p>
   </footer>
 
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script>
     const tabs = document.querySelectorAll('.tab');
     const sections = document.querySelectorAll('.section');
@@ -390,9 +393,11 @@
         });
         if (!response.ok) throw new Error('Request failed');
         contactForm.reset();
+        if (window.turnstile) turnstile.reset();
         formStatus.textContent = 'Thanks! Your message was sent.';
       } catch (error) {
         formStatus.textContent = 'Sorry, something went wrong. Please try again.';
+        if (window.turnstile) turnstile.reset();
       }
     });
   </script>
