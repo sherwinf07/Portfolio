@@ -321,7 +321,7 @@
           </div>
 
           <!-- Submissions go to a Cloudflare Worker (see worker/), which verifies Turnstile and forwards to Formspree. -->
-          <form class="contact-form" id="contact-form" action="https://contact.YOUR-SUBDOMAIN.workers.dev" method="POST">
+          <form class="contact-form" id="contact-form" action="https://contact.sherwinfrias07.workers.dev" method="POST">
             <div class="form-row">
               <label class="sr-only" for="first-name">First name</label>
               <input type="text" id="first-name" name="first_name" placeholder="First Name" autocomplete="given-name" required>
@@ -335,7 +335,7 @@
             <label class="sr-only" for="message">Your message</label>
             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
-            <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY"></div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAi31ZWN2ZLQm8DO"></div>
             <button type="submit" class="btn submit-btn">Submit</button>
             <p class="form-status" id="form-status" role="status"></p>
           </form>

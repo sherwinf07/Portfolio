@@ -1,5 +1,5 @@
 const FORMSPREE_URL = 'https://formspree.io/f/xbgoprpg';
-const ALLOWED_ORIGIN = 'https://YOUR-SITE-DOMAIN'; // exact origin, no trailing slash
+const ALLOWED_ORIGIN = 'https://portfolio.thefrias.net'; // exact origin, no trailing slash
 
 export default {
   async fetch(request, env) {
